@@ -4,7 +4,7 @@
 
 # LADN: Local Adversarial Disentangling Network for Facial Makeup and De-Makeup
 
-[[Project Page]](https://georgegu1997.github.io/makeup-web/)[[Paper]](https://arxiv.org/abs/1904.11272)
+[[Project Page]](https://georgegu1997.github.io/LADN-project-page/)[[Paper]](https://arxiv.org/abs/1904.11272)
 
 Pytorch implementation of our network, LAND for makeup transfer and removal. LADN achieve not only state-of-the-art results on conventional styles but also novel results involving complex and dramatic styles with high-frequency details covering large areas across multiple facial features. We also collect a dataset containing unpaired images of before- and after-makeup faces.
 
