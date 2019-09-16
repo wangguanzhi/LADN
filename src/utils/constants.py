@@ -6,7 +6,7 @@ API_KEY = "2RIMQKQge97okAtBUFTR0FXRWpuGeDlh"
 API_SECRET = "TCSe4TedTYvmxzONO4_jUNUXlY4-yYZ1"
 
 DLIB_DAT_PATH = "../models/shape_predictor_68_face_landmarks.dat"
-DUMMY_BLEND_PATH = "../dataset/train/dummp.jpg"
+DUMMY_BLEND_PATH = "../datasets/makeup/dummy.jpg"
 
 STASM_LEFT_EYEBALL = list(range(30, 38))
 STASM_LEFT_EYEBROW = list(range(16, 22))
