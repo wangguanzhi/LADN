@@ -6,7 +6,7 @@
 
 [[Project Page]](https://georgegu1997.github.io/LADN-project-page/)[[Paper]](https://arxiv.org/abs/1904.11272)
 
-Pytorch implementation of our network, LAND for makeup transfer and removal. LADN achieve not only state-of-the-art results on conventional styles but also novel results involving complex and dramatic styles with high-frequency details covering large areas across multiple facial features. We also collect a dataset containing unpaired images of before- and after-makeup faces.
+Pytorch implementation of our network, LADN for makeup transfer and removal. LADN achieve not only state-of-the-art results on conventional styles but also novel results involving complex and dramatic styles with high-frequency details covering large areas across multiple facial features. We also collect a dataset containing unpaired images of before- and after-makeup faces.
 
 Contact: Qiao Gu (qgu@connect.ust.hk) and Guanzhi Wang (gwangaj@connect.ust.hk)
 
@@ -58,7 +58,7 @@ conda install -c conda-forge tensorboardx
 
 ### Download makeup dataset
 
-* We release a dataset containing unpaired images before- and after-makeup faces, together with the synthetic ground truth. 
+* We release a dataset containing unpaired images before- and after-makeup faces, together with the synthetic ground truth.
 * Our code uses Face++ Detection API for facial landmarks, and the downloaded dataset includes the facial landmarks of the dataset images.
 
 Please download the zipped dataset from [Google Drive](https://drive.google.com/open?id=1gygDQarCOZ7E4qptvTyYF_iZNxsJ4WnI), put it in the `LADN/datasets/` and unzip it.
@@ -82,10 +82,18 @@ CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=0,1 python3 run.py --backup_gp
 * [light.pth](https://drive.google.com/open?id=17si9Eu1HFKEvDGNgiT2WGzqELIiy5oXl) performs better on light/conventional makeup styles.
 * [extreme.pth](https://drive.google.com/open?id=1ToQcUZXCcpkN3jWCavIegHVF4I4OuCGJ) performs better on extreme/highly dramatic makeup styles.
 
-Please download the pre-trained model file and put it in `model` folder. and run the following command to test the model. 
+Please download the pre-trained model file and put it in `model` folder. and run the following command to test the model.
+
+For *light.pth*
 
 ```
-CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=0,1 python3 run.py --backup_gpu 1 --dataroot ../datasets/makeup --name makeup_test --resize_size 576 --crop_size 512 --local_style_dis --n_local 12 --phase test --test_forward --test_random --result_dir ../results --test_size 300 --resume ../models/extreme.pth
+CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=0,1 python3 run.py --backup_gpu 1 --dataroot ../datasets/makeup --name makeup_test --resize_size 576 --crop_size 512 --local_style_dis --n_local 12 --phase test --test_forward --test_random --result_dir ../results --test_size 300 --resume ../models/light.pth --no_extreme
+```
+
+For *extreme.pth*
+
+```
+CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=0,1 python3 run.py --backup_gpu 1 --dataroot ../datasets/makeup --name makeup_test --resize_size 576 --crop_size 512 --local_style_dis --n_local 12 --phase test --test_forward --test_random --result_dir ../results --test_size 300 --resume ../models/extreme.pth --extreme_only
 ```
 
 ## Acknowledgement

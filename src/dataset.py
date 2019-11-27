@@ -46,9 +46,9 @@ class dataset_makeup(data.Dataset):
         imgs_after = os.listdir(os.path.join(self.dataroot, "after"))
         self.B_all = [os.path.join(self.dataroot, "after", x) for x in imgs_after]
         if self.no_extreme:
-            imgs_after = [f for f in imgs_after if not f[0] in ["1", "2"]]
+            imgs_after = [f for f in imgs_after if f[0]=="0" or f[:2] in ["20", "30", "31"]]
         if self.extreme_only:
-            imgs_after = [f for f in imgs_after if f[0] in ["1", "2"]]
+            imgs_after = [f for f in imgs_after if f[0]=="1" or f[:2] in ["21"]]
         self.B = [os.path.join(self.dataroot, "after", x) for x in imgs_after]
 
         self.A_size = len(self.A)
@@ -65,15 +65,15 @@ class dataset_makeup(data.Dataset):
                 # The sampled points should be the same across multiple runs
                 random.seed(2018)
                 for i in range(self.test_size):
-                    path_B = self.B_all[random.randint(0, self.B_size - 1)]
-                    path_A = self.A_all[random.randint(0, self.A_size - 1)]
+                    path_B = self.B[random.randint(0, self.B_size - 1)]
+                    path_A = self.A[random.randint(0, self.A_size - 1)]
                     path_C = self.getPathC(path_A, path_B)
                     self.datapoints.append([path_A, path_B, path_C])
                 random.setstate(rs)
             else:
                 print("Iterating over all pairs of images and generate results")
-                for path_A in self.A_all:
-                    for path_B in self.B_all:
+                for path_A in self.A:
+                    for path_B in self.B:
                         path_C = self.getPathC(path_A, path_B)
                         self.datapoints.append([path_A, path_B, path_C])
                 random.shuffle(self.datapoints)
@@ -83,8 +83,8 @@ class dataset_makeup(data.Dataset):
             print("Dataset for testing initialized, including %d data points" % self.dataset_size)
         # interpolate mode, will return one before and two after images for interpolation of makeup styles
         elif self.mode == "interpolate":
-            self.A_interpolate = np.random.choice(self.A_all, opts.test_size)
-            self.B_interpolate = np.random.choice(self.B_all, opts.test_size)
+            self.A_interpolate = np.random.choice(self.B, opts.test_size)
+            self.B_interpolate = np.random.choice(self.B, opts.test_size)
             self.dataset_size = self.test_size
         # normal training dataset
         elif self.mode == "train":
@@ -186,9 +186,9 @@ class dataset_makeup(data.Dataset):
         if self.mode == "test":
             path_A, path_B, path_C = self.datapoints[index % self.dataset_size]
         elif self.mode == "interpolate":
-            path_A = random.choice(self.A_all)
-            path_B = random.choice(self.B_all)
-            path_C = random.choice(self.B_all)
+            path_A = random.choice(self.A)
+            path_B = random.choice(self.B)
+            path_C = random.choice(self.B)
         elif self.mode == "train":
             if self.dataset_size == self.A_size:
                 path_A = self.A[index]
