@@ -19,13 +19,12 @@ arXiv preprint arXiv:1904.11272 (\*Equal contribution. Authorship order was dete
 Please cite our paper if you find the code or dataset useful for your research.
 
 ```
-@article{DBLP:LADN,
-  author    = {Qiao Gu and Guanzhi Wang and Mang Tik Chiu and Yu{-}Wing Tai and Chi{-}Keung Tang},
-  title     = {{LADN:} Local Adversarial Disentangling Network for Facial Makeup and De-Makeup},
-  journal   = {arXiv},
-  volume    = {abs/1904.11272},
-  year      = {2019},
-  url       = {http://arxiv.org/abs/1904.11272},
+@inproceedings{gu2019ladn,
+  title={Ladn: Local adversarial disentangling network for facial makeup and de-makeup},
+  author={Gu, Qiao and Wang, Guanzhi and Chiu, Mang Tik and Tai, Yu-Wing and Tang, Chi-Keung},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
+  pages={10481--10490},
+  year={2019}
 }
 ```
 
