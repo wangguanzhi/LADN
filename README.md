@@ -10,6 +10,10 @@ Pytorch implementation of our network, LADN for makeup transfer and removal. LAD
 
 Contact: Qiao Gu (qgu@connect.ust.hk) and Guanzhi Wang (gwangaj@connect.ust.hk)
 
+## Synthetic Ground Truth Generation
+
+The makeup transfer pipeline with no deep learning components is updated [here](https://github.com/georgegu1997/makeup-transfer-public). 
+
 ## Paper
 
 LADN: Local Adversarial Disentangling Network for Facial Makeup and De-Makeup <br>
