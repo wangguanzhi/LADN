@@ -64,7 +64,7 @@ conda install -c conda-forge tensorboardx
 * We release a dataset containing unpaired images before- and after-makeup faces, together with the synthetic ground truth.
 * Our code uses Face++ Detection API for facial landmarks, and the downloaded dataset includes the facial landmarks of the dataset images.
 
-Please download the zipped dataset from [Google Drive](https://drive.google.com/open?id=1gygDQarCOZ7E4qptvTyYF_iZNxsJ4WnI), put it in the `LADN/datasets/` and unzip it.
+Please download the zipped dataset from [Google Drive](https://drive.google.com/file/d/1Y0AlgKSVZNsjUG4u0YUHzoxtsG0qgexZ/view?usp=sharing), put it in the `LADN/datasets/` and unzip it.
 
 ### Training
 
@@ -82,8 +82,8 @@ CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=0,1 python3 run.py --backup_gp
 ### Download and run pre-trained models
 
 * We release two pre-trained models (*light.pth* and *extreme.pth*) for your reference.
-* [light.pth](https://drive.google.com/open?id=17si9Eu1HFKEvDGNgiT2WGzqELIiy5oXl) performs better on light/conventional makeup styles.
-* [extreme.pth](https://drive.google.com/open?id=1ToQcUZXCcpkN3jWCavIegHVF4I4OuCGJ) performs better on extreme/highly dramatic makeup styles.
+* [light.pth](https://drive.google.com/file/d/1Y5EHYIUjOVXTJ15LjEBU3DrwfEZ_LvRc/view?usp=sharing) performs better on light/conventional makeup styles.
+* [extreme.pth](https://drive.google.com/file/d/1YBmOBR6bdaeZOKeaJZWoaPaubz2nqHEN/view?usp=sharing) performs better on extreme/highly dramatic makeup styles.
 
 Please download the pre-trained model file and put it in `model` folder. and run the following command to test the model.
 
